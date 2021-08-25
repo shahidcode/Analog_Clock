@@ -49,7 +49,7 @@
 
                                
 
-      const Time =  setInterval( ()=>{                   // function to display 'Time()' function after every 1 sec(1000 milliseconds)
+      const Time =  setInterval( ()=>{                   
         
         const date = new Date();
 
@@ -57,16 +57,16 @@
         const minutes = date.getMinutes();
         const seconds = date.getSeconds();
 
-        const hrToDeg = ( (hours - 12) * 30 );      // other logic can be applied here,but this logic reduced the calculation part
-        const minToDeg = minutes * 6;                       //  to rotate minute hand by 1 minute,it should complete 6 degree...since, ( 6 deg*60 min = 1 revolution = 360 deg )
-        const secToDeg = seconds * 6;  //  to rotate second hand by 1 second,it should complete 6 degree...since, (6 deg*60 sec = 1 revolution = 360 deg)
+        const hrToDeg = ( (hours - 12) * 30 );      
+        const minToDeg = minutes * 6;                       
+        const secToDeg = seconds * 6;  
 
         hrHand.style.transform = `rotate(${hrToDeg}deg)`;
-        secHand.style.transform = `rotateZ(${secToDeg}deg)`;                /* rotateZ() is same as rotate() */
+        secHand.style.transform = `rotateZ(${secToDeg}deg)`;                
         minHand.style.transform = `rotate(${minToDeg}deg)`;
     } , 1000 );  
 
-    clearTimeout(Time);                   // function to terminate setInterval()
+    clearTimeout(Time);                   
     </script>
 
 </body>
