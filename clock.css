@@ -12,7 +12,7 @@ html{
 }
 
 body{
-    background-color: var(--background-color);          /*  using variables in css */
+    background-color: var(--background-color);          
 }
 
 :root{
@@ -40,7 +40,7 @@ body{
 
 .clock .shape{
     position: relative;
-    height: 48rem;                                  /* 1em = 1.6rem...calculated by me,cross check */
+    height: 48rem;                                 
     width: 48rem;
     background-color: var(--background-color);
     border-radius: 3.0rem;
@@ -94,7 +94,7 @@ body{
     left: 50%;
     border-radius: 1.0rem 1.0rem 0 0;
     background-color: black;
-    transform-origin:bottom center;                 /* by default rotate() will rotate the object through center,but we need to rotate the hands of clock from bottom...for clarificato the result remove this line of code and write 'transform: rotate(value_of_deg_to_rotate)' */
+    transform-origin:bottom center;                 
     z-index: 1;
 }
 
@@ -185,14 +185,14 @@ input[type="checkbox"]:hover::after{
 
 }
 
-@media (max-width:450px) {                  /* iphone 6/7/8 plus and below */
+@media (max-width:450px) {                  
     html{
       font-size: 40%;  
     }
     
 }
 
-@media (max-width:330px){                  /* galaxy fold and iphone 5/se*/
+@media (max-width:330px){                  
     html{
         font-size: 30%;
     }
