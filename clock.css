@@ -1,0 +1,199 @@
+
+/* light theme : body-bg:#e3edf7 , box-shadow: 6rem 6rem 10rem -1rem rgba(0,0,0,0.2), -6rem -6rem 10rem -1rem rgba(255,255,255,0.7); 
+   dark theme :  body-bg:#222020 , box-shadow: 6rem 6rem 10rem -1rem rgba(9, 7, 14, 0.6), -6rem -6rem 10rem -1rem rgba(255,255,255,0.03);
+*/
+html{
+    font-size: 62.5%;               /* 1rem = 16px */
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: var(--background-color);          /*  using variables in css */
+}
+
+:root{
+    --background-color: #e3edf7;                  
+    --box-shadow-1: rgba(0,0,0,0.2);
+    --box-shadow-2: rgba(255,255,255,0.7);
+    --font-color: black;   
+}
+
+.dark-theme{  
+    --background-color: #222020; 
+    --box-shadow-1: rgba(9, 7, 14, 0.6);
+    --box-shadow-2: rgba(255,255,255,0.03);
+    --font-color: rgb(230, 225, 225);
+}
+
+
+.clock{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+
+.clock .shape{
+    position: relative;
+    height: 48rem;                                  /* 1em = 1.6rem...calculated by me,cross check */
+    width: 48rem;
+    background-color: var(--background-color);
+    border-radius: 3.0rem;
+    box-shadow: .6rem .6rem 1.0rem -.1rem var(--box-shadow-1),
+                -.6rem -.6rem 1.0rem -.1rem var(--box-shadow-2);
+}
+
+.twelve, .six, .three, .nine{
+    font-size: 3.2rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--font-color);    
+}
+
+.twelve{
+    position: absolute;
+    top: 5%;
+    left: 48%;
+}
+.three{
+    position: absolute;
+    top: 48%;
+    right: 5%;
+}
+.six{
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+}
+.nine{
+    position: absolute;
+    top: 48%;
+    left: 5%;
+}
+
+.center{ 
+    position: absolute;
+    height: 1.3rem;
+    width: 1.3rem;
+    top: 50%;
+    left: 49.8%;
+    background-color: rgb(185, 52, 52);
+    border-radius: 50%;
+    z-index: 5;
+}
+
+.hr-hand{
+    position: absolute;
+    width: 1.0rem;
+    height: 11.0rem;
+    top: 28%;
+    left: 50%;
+    border-radius: 1.0rem 1.0rem 0 0;
+    background-color: black;
+    transform-origin:bottom center;                 /* by default rotate() will rotate the object through center,but we need to rotate the hands of clock from bottom...for clarificato the result remove this line of code and write 'transform: rotate(value_of_deg_to_rotate)' */
+    z-index: 1;
+}
+
+.min{
+    position: absolute;
+    width: .7rem;
+    height: 18.0rem;
+    top: 14%;
+    left: 50.4%;
+    border-radius: 1.0rem 1.0rem 0 0;
+    background-color: yellow;
+    transform-origin:bottom center;    
+    z-index: 3;
+}
+
+.sec{
+    position: absolute;
+    width: .4rem;
+    height: 15.0rem;
+    top: 20%;
+    left: 50.7%;
+    border-radius: 1.0rem 1.0rem 0 0;
+    background-color: cyan;                 
+    transform-origin:bottom center;
+    z-index: 2; 
+}
+
+.support{
+    position: absolute;
+    left: 50%;  
+    top: 7%;
+    background-color: rgb(23, 163, 121);
+    transform: translate(-50%,-50%);
+    height: 3.0rem;
+    width: 8.5rem;
+    border-radius: 1.0rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.support .icons{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 2.3rem;
+}
+
+.icons #light,#dark{
+    margin: 0 10px;
+    font-size: 2rem;
+}
+
+input[type="checkbox"]{        
+    position: absolute;
+    appearance: none;
+    height: 2.6rem;
+    width: 4.5rem;
+    cursor: pointer;
+    left: 3%;
+    transition: ease-in-out 0.5s;
+}
+
+input[type="checkbox"]:checked{
+    position: absolute;
+    left: 50%;
+}
+
+input[type="checkbox"]::after{
+    position: absolute;
+    content: '';
+    height: 2.6rem;
+    width: 4.0rem;
+    border-radius: 1.0rem;
+    background-color: black;
+}
+
+input[type="checkbox"]:hover::after{
+    background-color: rgb(27, 27, 27);
+}
+
+
+@media (max-width:650px) {          /* responsive */
+    html{
+      font-size: 54%;  
+    }
+
+}
+
+@media (max-width:450px) {                  /* iphone 6/7/8 plus and below */
+    html{
+      font-size: 40%;  
+    }
+    
+}
+
+@media (max-width:330px){                  /* galaxy fold and iphone 5/se*/
+    html{
+        font-size: 30%;
+    }
+}

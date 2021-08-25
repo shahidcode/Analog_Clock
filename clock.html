@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head>
+    <title>Analog Clock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./clock.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.15.3/css/all.css"> 
+</head>
+<body>
+    
+<div class="support">
+
+    <div class="icons">
+        <div id="light"><i class="fas fa-sun" style="color: white;"></i></div>
+        <div id="dark"><i class="fas fa-moon"></i></div>   
+    </div>
+
+    <input id="check" type="checkbox">
+</div>
+   
+    <div class="clock">
+        <div class="shape"></div>
+
+        <div class="center"></div>
+
+        <div class="hour">
+            <div class="twelve">12</div>
+            <div class="three">3</div>
+            <div class="six">6</div>
+            <div class="nine">9</div>
+
+            <div class="hr-hand"></div>
+        </div>
+
+        <div class="min"></div>
+        <div class="sec"></div>
+    </div>
+
+
+    <script type="text/javascript">
+
+        const check = document.querySelector("#check");
+        check.onclick = () =>{
+            document.body.classList.toggle("dark-theme");
+        }
+
+        const hrHand = document.querySelector('.hr-hand');
+        const minHand = document.querySelector('.min');
+        const secHand = document.querySelector('.sec');
+
+                               
+
+      const Time =  setInterval( ()=>{                   // function to display 'Time()' function after every 1 sec(1000 milliseconds)
+        
+        const date = new Date();
+
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        const seconds = date.getSeconds();
+
+        const hrToDeg = ( (hours - 12) * 30 );      // other logic can be applied here,but this logic reduced the calculation part
+        const minToDeg = minutes * 6;                       //  to rotate minute hand by 1 minute,it should complete 6 degree...since, ( 6 deg*60 min = 1 revolution = 360 deg )
+        const secToDeg = seconds * 6;  //  to rotate second hand by 1 second,it should complete 6 degree...since, (6 deg*60 sec = 1 revolution = 360 deg)
+
+        hrHand.style.transform = `rotate(${hrToDeg}deg)`;
+        secHand.style.transform = `rotateZ(${secToDeg}deg)`;                /* rotateZ() is same as rotate() */
+        minHand.style.transform = `rotate(${minToDeg}deg)`;
+    } , 1000 );  
+
+    clearTimeout(Time);                   // function to terminate setInterval()
+    </script>
+
+</body>
+</html>
